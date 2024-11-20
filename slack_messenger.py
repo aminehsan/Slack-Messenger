@@ -9,7 +9,7 @@ class SlackMessenger:
     """A class for sending messages to Slack."""
 
     def __init__(self, url: str) -> None:
-        self.__webhook = WebhookClient(url=url)
+        self._webhook = WebhookClient(url=url)
 
     def send(
             self,
@@ -22,7 +22,7 @@ class SlackMessenger:
         while True:
             counter += 1
             try:
-                response = self.__webhook.send(
+                response = self._webhook.send(
                     text=text,
                     blocks=blocks,
                     unfurl_links=True,
